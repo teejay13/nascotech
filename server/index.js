@@ -1,16 +1,17 @@
 const express = require("express")
 const dotenv = require("dotenv").config()
 const {errorHandler} = require("./middleware/errorMiddleware")
+const connectDB = require('./config/db')
+const cors = require("cors")
 const port = process.env.port || 4050
+
+connectDB()
 const app = express()
-const mongoose = require("mongoose")
-
-mongoose.connect("mongodb+srv://nascoUser:nascoUser@cluster0.gdbtq.mongodb.net/oStudentReg?retryWrites=true&w=majority")
-
 
 
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
+app.use(cors())
 app.use('/api/getStudents', require("./routes/studentRoutes"))
 
 app.use(errorHandler)
