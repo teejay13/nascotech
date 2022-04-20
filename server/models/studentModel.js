@@ -24,7 +24,7 @@ const studentSchema = new mongoose.Schema({
         trim: true,
     },
     telephone:{
-        type: Number,
+        type: String,
         unique: [true, "Telephone number already registered."],
         required: [true, "Telephone number is required."],
         trim: true,
