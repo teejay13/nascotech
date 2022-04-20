@@ -40,7 +40,8 @@ const setStudents = asyncHandler(async (req, res) => {
     })
     res.status(200).json({
         output: newStudent,
-        message: 'Set students'})
+        type: success,
+        message: `Above ID: ${newStudent.studentID} registration succesful`})
 })
 
 

@@ -1,5 +1,7 @@
 import { useState } from "react"
 import Axios from "axios"
+import Popup from "../ui/popup"
+
 
 const AddStudent = () => {
 
@@ -10,6 +12,7 @@ const AddStudent = () => {
     const [telephone,setTelephone] = useState("")
     const [dob,setDOB] = useState("")
     const [level,setLevel] = useState("")
+    const [showpop, setpopup]= useState(false)
 
 
     const createStudent = (event) => {
@@ -40,7 +43,6 @@ const AddStudent = () => {
         <div className="p-8 rounded border border-gray-200">
             <h1 className="font-medium text-3xl">Add Student</h1>
             <p className="text-gray-600 mt-6">Online student registration system.</p>
-
             <form onSubmit={createStudent}>
                 <div className="mt-8 grid lg:grid-cols-3 gap-4">
 
@@ -71,7 +73,7 @@ const AddStudent = () => {
 
                 <div>
                     <label htmlFor="dob" className="text-sm text-gray-700 block mb-1 font-medium">Date of birth</label>
-                    <input type="date" name="dob" id="dob" className="bg-gray-100 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full" placeholder="(01/01/1993)" onChange={(event) => {setDOB(event.target.value)}}/>
+                    <input type="date" name="dob" id="dob" max="2015-01-01" min="1990-01-01" className="bg-gray-100 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full" placeholder="(01/01/1993)" onChange={(event) => {setDOB(event.target.value)}}/>
                 </div>
 
                 <div>
