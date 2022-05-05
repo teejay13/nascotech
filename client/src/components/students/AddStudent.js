@@ -65,7 +65,7 @@ const AddStudent = () => {
 
                 <div>
                     <label htmlFor="email" className="text-sm text-gray-700 block mb-1 font-medium">Email Address</label>
-                    <input type="text" name="email" id="email" className="bg-gray-100 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full" placeholder="yourmail@provider.com" onChange={(event) => {setEmail(event.target.value)}} {...register("email", { required: true, maxLength: 20 })}/>
+                    <input type="text" name="email" id="email" className="bg-gray-100 border border-gray-200 rounded py-1 px-3 block focus:ring-blue-500 focus:border-blue-500 text-gray-700 w-full" placeholder="yourmail@provider.com" onChange={(event) => {setEmail(event.target.value)}} {...register("email", { required: true, maxLength: 20,pattern: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/ })}/>
                     {errors.email && <p className="text-sm text-rose-900 font-normal">Please check the Email address</p>}
                 </div>
 
